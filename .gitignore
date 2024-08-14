@@ -76,7 +76,6 @@ crashlytics-build.properties
 /TDPrototype/UserSettings
 /TDPrototype/ProjectSettings
 /TDPrototype/Assets/TutorialInfo
-*.json
 /TDPrototype/Logs
 
 /TDPrototype/Assets/Settings
