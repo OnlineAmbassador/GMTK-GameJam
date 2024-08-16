@@ -26,6 +26,14 @@ public class TowerPlacement : MonoBehaviour
                 currentPlacingTower.transform.position = hitInfo.point;
             }
 
+            // Cancel Tower Placement
+            if(Input.GetKeyDown(KeyCode.Q))
+            {
+                Destroy(currentPlacingTower);
+                currentPlacingTower = null;
+                return;
+            }
+
             if(Input.GetMouseButtonDown(0) && hitInfo.collider.gameObject != null)
             {
                 if(!hitInfo.collider.gameObject.CompareTag("cantPlace"))
@@ -38,6 +46,9 @@ public class TowerPlacement : MonoBehaviour
                     
                     if(!Physics.CheckBox(boxCenter, halfExtents, Quaternion.identity, placementCheckMask, QueryTriggerInteraction.Ignore))
                     {
+
+                        GameLoopManager.towersInGame.Add(currentPlacingTower.GetComponent<TowerBehavior>());
+
                         currentPlacingTower = null;
                         towerCollider.isTrigger = false;
                     }    
