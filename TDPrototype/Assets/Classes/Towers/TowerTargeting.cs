@@ -4,6 +4,7 @@ using Unity.Collections;
 using Unity.Jobs;
 using UnityEngine.Jobs;
 using UnityEngine;
+using Unity.VisualScripting;
 
 public class TowerTargeting
 {
@@ -51,12 +52,16 @@ public class TowerTargeting
 
         for (int i = 0; i < enemiesToCalculate.Length; i++)
         {
-            Enemy currentEnemy = enemiesInRange[i].transform.parent.GetComponent<Enemy>();
-            if (currentEnemy != null)
+            if (enemiesInRange[i].transform.parent != null)
             {
-                int enemyIndexInList = EntitySummoner.enemiesInGame.FindIndex(x => x == currentEnemy);
-                enemiesToCalculate[i] = new EnemyData(currentEnemy.transform.position, currentEnemy.nodeIndex, currentEnemy.health, enemyIndexInList);
+                Enemy currentEnemy = enemiesInRange[i].transform.parent.GetComponent<Enemy>();
+                if (currentEnemy != null)
+                {
+                    int enemyIndexInList = EntitySummoner.enemiesInGame.FindIndex(x => x == currentEnemy);
+                    enemiesToCalculate[i] = new EnemyData(currentEnemy.transform.position, currentEnemy.nodeIndex, currentEnemy.health, enemyIndexInList);
+                }
             }
+
 
         }
 
@@ -173,7 +178,7 @@ public class TowerTargeting
 
         private float getDistanceToEnd(EnemyData enemyToEvaluate)
         {
-            float finalDistance = Vector3.Distance(enemyToEvaluate.enemyPosition, _nodePositions[enemyToEvaluate.nodeIndex - 1]);
+            float finalDistance = Vector3.Distance(enemyToEvaluate.enemyPosition, _nodePositions[enemyToEvaluate.nodeIndex]);
 
             for (int i = enemyToEvaluate.nodeIndex; i < _nodeDistances.Length; i++)
             {

@@ -2596,7 +2596,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 90
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -4018,8 +4018,7 @@ MonoBehaviour:
         m_MethodName: SetTowerToPlace
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 936303134276342203, guid: 1bfc15493a253b64aa07c851b50871b5,
-            type: 3}
+          m_ObjectArgument: {fileID: 936303134276342203, guid: 1bfc15493a253b64aa07c851b50871b5, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
