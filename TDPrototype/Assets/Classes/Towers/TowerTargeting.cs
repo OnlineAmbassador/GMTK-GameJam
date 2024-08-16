@@ -15,19 +15,49 @@ public class TowerTargeting
     }
     public static Enemy GetTarget(TowerBehavior currentTower, targetType targetMethod)
     {
+        Debug.Log(currentTower);
+        // Collider[] enemiesInRange = Physics.OverlapSphere(currentTower.transform.position, currentTower.range, currentTower.EnemiesLayer);
+
+        if (currentTower == null)
+        {
+            Debug.Log("currentTower is null! NOOO!!!!");
+            return null;
+        }
+
+        if (currentTower.EnemiesLayer == 0)
+        {
+            Debug.LogError("EnemiesLayer is not set on currentTower!");
+            return null;
+        }
 
         Collider[] enemiesInRange = Physics.OverlapSphere(currentTower.transform.position, currentTower.range, currentTower.EnemiesLayer);
+        Debug.Log("Enemies in range: " + enemiesInRange.Length);
+
+        if (enemiesInRange.Length == 0)
+        {
+            Debug.Log("No enemees");
+            return null;
+        }
+
+
+
         NativeArray<EnemyData> enemiesToCalculate = new NativeArray<EnemyData>(enemiesInRange.Length, Allocator.TempJob);
         NativeArray<Vector3> nodePositions = new NativeArray<Vector3>(GameLoopManager.nodePositions, Allocator.TempJob);
         NativeArray<float> nodeDistances = new NativeArray<float>(GameLoopManager.nodeDistances, Allocator.TempJob);
-        NativeArray<int> enemyToIndex = new NativeArray<int>(new int[] {-1}, Allocator.TempJob);
+        NativeArray<int> enemyToIndex = new NativeArray<int>(new int[] { -1 }, Allocator.TempJob);
         int enemyIndexToReturn = -1;
 
-        for(int i = 0; i < enemiesToCalculate.Length; i++)
+
+
+        for (int i = 0; i < enemiesToCalculate.Length; i++)
         {
             Enemy currentEnemy = enemiesInRange[i].transform.parent.GetComponent<Enemy>();
-            int enemyIndexInList = EntitySummoner.enemiesInGame.FindIndex(x => x == currentEnemy);
-            enemiesToCalculate[i] = new EnemyData(currentEnemy.transform.position, currentEnemy.nodeIndex, currentEnemy.health, enemyIndexInList);
+            if (currentEnemy != null)
+            {
+                int enemyIndexInList = EntitySummoner.enemiesInGame.FindIndex(x => x == currentEnemy);
+                enemiesToCalculate[i] = new EnemyData(currentEnemy.transform.position, currentEnemy.nodeIndex, currentEnemy.health, enemyIndexInList);
+            }
+
         }
 
         SearchForEnemy EnemySearchJob = new SearchForEnemy
@@ -41,7 +71,7 @@ public class TowerTargeting
             towerPosition = currentTower.transform.position
         };
 
-        switch((int)targetMethod)
+        switch ((int)targetMethod)
         {
             case 0: //First
                 EnemySearchJob.compareValue = Mathf.Infinity;
@@ -64,7 +94,7 @@ public class TowerTargeting
         nodeDistances.Dispose();
         enemyToIndex.Dispose();
 
-        if(enemyIndexToReturn == -1)
+        if (enemyIndexToReturn == -1)
         {
             return null;
         }
@@ -85,16 +115,16 @@ public class TowerTargeting
         public float health;
         public Vector3 enemyPosition;
         public int enemyIndex;
-        
+
     }
 
     struct SearchForEnemy : IJobFor
     {
 
-        public NativeArray<EnemyData> _enemiesToCalculate;
-        public NativeArray<Vector3> _nodePositions;
-        public NativeArray<float> _nodeDistances;
-        public NativeArray<int> _enemyToIndex;
+        [ReadOnly] public NativeArray<EnemyData> _enemiesToCalculate;
+        [ReadOnly] public NativeArray<Vector3> _nodePositions;
+        [ReadOnly] public NativeArray<float> _nodeDistances;
+        [NativeDisableParallelForRestriction] public NativeArray<int> _enemyToIndex;
         public Vector3 towerPosition;
         public float compareValue;
         public int targetingType;
@@ -108,8 +138,8 @@ public class TowerTargeting
                 case 0: //First
 
                     currentEnemyDistanceToEnd = getDistanceToEnd(_enemiesToCalculate[index]);
-                    
-                    if(currentEnemyDistanceToEnd < compareValue)
+
+                    if (currentEnemyDistanceToEnd < compareValue)
                     {
                         _enemyToIndex[0] = index;
                         compareValue = currentEnemyDistanceToEnd;
@@ -118,10 +148,10 @@ public class TowerTargeting
                     break;
                 case 1: //Last
 
-                
+
                     currentEnemyDistanceToEnd = getDistanceToEnd(_enemiesToCalculate[index]);
-                    
-                    if(currentEnemyDistanceToEnd > compareValue)
+
+                    if (currentEnemyDistanceToEnd > compareValue)
                     {
                         _enemyToIndex[0] = index;
                         compareValue = currentEnemyDistanceToEnd;
@@ -130,9 +160,9 @@ public class TowerTargeting
                     break;
                 case 2:  //Close
 
-                  distanceToEnemy = Vector3.Distance(towerPosition, _enemiesToCalculate[index].enemyPosition);
-                    
-                    if(distanceToEnemy > compareValue)
+                    distanceToEnemy = Vector3.Distance(towerPosition, _enemiesToCalculate[index].enemyPosition);
+
+                    if (distanceToEnemy > compareValue)
                     {
                         _enemyToIndex[0] = index;
                         compareValue = distanceToEnemy;
@@ -143,9 +173,9 @@ public class TowerTargeting
 
         private float getDistanceToEnd(EnemyData enemyToEvaluate)
         {
-            float finalDistance = Vector3.Distance(enemyToEvaluate.enemyPosition, _nodePositions[enemyToEvaluate.nodeIndex]);
+            float finalDistance = Vector3.Distance(enemyToEvaluate.enemyPosition, _nodePositions[enemyToEvaluate.nodeIndex - 1]);
 
-            for(int i = enemyToEvaluate.nodeIndex; i < _nodeDistances.Length; i++)
+            for (int i = enemyToEvaluate.nodeIndex; i < _nodeDistances.Length; i++)
             {
                 finalDistance += _nodeDistances[i];
             }
