@@ -1,5 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-
 public class PlayerMovement : MonoBehaviour
 {
 
@@ -56,9 +57,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveCamera()
     {
+
+        if(Input.GetMouseButton(1))
+        {
         xRot -= playerMouseInput.y * sensitivity;
 
         transform.Rotate(0f, playerMouseInput.x * sensitivity, 0f);
         playerCamera.transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
+        }
     }
 }
