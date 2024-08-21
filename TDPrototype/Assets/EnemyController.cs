@@ -18,6 +18,8 @@ public class EnemyController : MonoBehaviour
     private Material normalmat;
     private Coroutine flashCoroutine;
 
+    public GameObject ps;
+
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -68,6 +70,7 @@ public class EnemyController : MonoBehaviour
             {
                 StopCoroutine(flashCoroutine);
             }
+            Instantiate(ps, transform.position, Quaternion.identity);
             DestroyImmediate(gameObject);
         }
     }
