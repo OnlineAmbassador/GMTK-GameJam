@@ -70,13 +70,6 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-/TDPrototype/.vscode
-/TDPrototype/Library
-/TDPrototype/Temp
-/TDPrototype/UserSettings
-/TDPrototype/ProjectSettings
-/TDPrototype/Assets/TutorialInfo
-/TDPrototype/Logs
-
-/TDPrototype/Assets/Settings
-
+/Assets/TerrainSampleAssets
+/Assets/BOKI
+/TDPrototype
