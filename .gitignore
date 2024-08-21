@@ -72,4 +72,10 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /Assets/TerrainSampleAssets
 /Assets/BOKI
-/TDPrototype
+
+/TDPrototype/Assets/LowPoly Environment Pack
+TDPrototype/Assets/RailGun.zip
+TDPrototype/Assets/RailGun.zip.meta
+/TDPrototype/Assets/SOUNDS4U
+/TDPrototype/Assets/TerrainSampleAssets
+/TDPrototype/Library
