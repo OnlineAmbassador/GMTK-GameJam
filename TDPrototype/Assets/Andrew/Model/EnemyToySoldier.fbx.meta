@@ -3,7 +3,12 @@ guid: 16894e9222735e44e81211f9fff56542
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: 14073_WWII_Soldier_throwing_grenade
+    second: {fileID: 2100000, guid: cffbecc91ac94e341905d90faec7e4e2, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
