@@ -5157,6 +5157,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4976183893122148854, guid: 14d3d59acf559d04892fcb2fbf462d81, type: 3}
+      propertyPath: textMeshProUGUI
+      value: 
+      objectReference: {fileID: 5118719122165536911}
     - target: {fileID: 8953563909861580284, guid: 14d3d59acf559d04892fcb2fbf462d81, type: 3}
       propertyPath: m_Name
       value: BigGuy

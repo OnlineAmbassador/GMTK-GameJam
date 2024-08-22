@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
-        //Cursor.SetCursor(cursor, Vector3.zero, CursorMode.ForceSoftware);
+        Cursor.SetCursor(cursor, Vector3.zero, CursorMode.ForceSoftware);
     }
 
     void Update()
