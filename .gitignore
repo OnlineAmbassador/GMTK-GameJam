@@ -72,4 +72,17 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 /Assets/TerrainSampleAssets
 /Assets/BOKI
-/TDPrototype
+
+# /TDPrototype/Assets/LowPoly Environment Pack
+TDPrototype/Assets/RailGun.zip
+TDPrototype/Assets/RailGun.zip.meta
+/TDPrototype/Assets/SOUNDS4U
+/TDPrototype/Assets/TerrainSampleAssets
+/TDPrototype/Library
+/TDPrototype/Temp
+TDPrototype/ProjectSettings/Packages/com.unity.probuilder/Settings.json
+TDPrototype/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+TDPrototype/ProjectSettings/Packages/com.unity.probuilder/Settings.json
+TDPrototype/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+/TDPrototype/Assets/LowPoly Environment Pack/Demo
+/TDPrototype/Logs
