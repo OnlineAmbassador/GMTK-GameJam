@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 179312977452823770}
   - component: {fileID: 2578269164233305439}
-  - component: {fileID: 7260827067405353619}
   m_Layer: 0
   m_Name: LeftCurve
   m_TagString: Untagged
@@ -60,19 +59,6 @@ MonoBehaviour:
   - position: {x: -25, y: 0, z: 25}
     tangent: {x: -13.5, y: 0, z: 0}
     roll: 0
---- !u!114 &7260827067405353619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330172508798331839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36d658b73bf2640c09a3722c8d79b1eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gizmoLength: 1
 --- !u!1001 &7386248449470153845
 PrefabInstance:
   m_ObjectHideFlags: 0

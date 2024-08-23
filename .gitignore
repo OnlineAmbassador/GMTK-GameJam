@@ -88,3 +88,4 @@ TDPrototype/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.j
 /TDPrototype/Logs
 /TDPrototype/obj/Debug
 /TDPrototype/UserSettings/Layouts
+*.dwlt
