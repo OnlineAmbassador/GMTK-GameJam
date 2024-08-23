@@ -70,13 +70,20 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 # /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
-/TDPrototype/.vscode
+/Assets/TerrainSampleAssets
+/Assets/BOKI
+
+# /TDPrototype/Assets/LowPoly Environment Pack
+TDPrototype/Assets/RailGun.zip
+TDPrototype/Assets/RailGun.zip.meta
+/TDPrototype/Assets/SOUNDS4U
+/TDPrototype/Assets/TerrainSampleAssets
 /TDPrototype/Library
 /TDPrototype/Temp
-/TDPrototype/UserSettings
-/TDPrototype/ProjectSettings
-/TDPrototype/Assets/TutorialInfo
+TDPrototype/ProjectSettings/Packages/com.unity.probuilder/Settings.json
+TDPrototype/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+TDPrototype/ProjectSettings/Packages/com.unity.probuilder/Settings.json
+TDPrototype/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json
+/TDPrototype/Assets/LowPoly Environment Pack/Demo
 /TDPrototype/Logs
-
-/TDPrototype/Assets/Settings
-
+/TDPrototype/obj/Debug

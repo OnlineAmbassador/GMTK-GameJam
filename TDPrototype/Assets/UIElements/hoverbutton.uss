@@ -1,0 +1,37 @@
+.unity-button:hover {
+    scale: 1.2 1.2;
+    transition-duration: 0.1s;
+    transition-timing-function: ease-out-cubic;
+    rotate: 0;
+    translate: 0 0;
+    transition-property: all;
+    border-top-width: 4px;
+    border-right-width: 4px;
+    border-bottom-width: 4px;
+    border-left-width: 4px;
+}
+
+.unity-button {
+    transition-duration: 0.1s;
+    transition-timing-function: ease-in-out-cubic;
+    border-top-left-radius: 43px;
+    border-top-right-radius: 43px;
+    border-bottom-right-radius: 43px;
+    border-bottom-left-radius: 43px;
+    border-top-width: 5px;
+    border-right-width: 5px;
+    border-bottom-width: 5px;
+    border-left-width: 5px;
+}
+
+.hidden {
+    translate: -409px 0;
+}
+
+.hidden2 {
+    translate: -840px 0;
+}
+
+.acckeyactive {
+    -unity-background-image-tint-color: rgb(89, 255, 101);
+}
