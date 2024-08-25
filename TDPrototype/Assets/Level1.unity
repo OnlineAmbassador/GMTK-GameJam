@@ -2235,6 +2235,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4976183893122148854, guid: 14d3d59acf559d04892fcb2fbf462d81, type: 3}
+      propertyPath: standHeight
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976183893122148854, guid: 14d3d59acf559d04892fcb2fbf462d81, type: 3}
+      propertyPath: crouchHeight
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4976183893122148854, guid: 14d3d59acf559d04892fcb2fbf462d81, type: 3}
       propertyPath: textMeshProUGUI
       value: 
       objectReference: {fileID: 5118719122165536911}

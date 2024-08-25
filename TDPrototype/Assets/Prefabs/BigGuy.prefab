@@ -407,10 +407,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 4550034903601756641}
   controller: {fileID: 3727234726408050378}
-  speed: 100
+  sprintSpeed: 200
+  walkSpeed: 100
   jumpForce: 225.3
   gravity: -341.1
-  cursor: {fileID: 2800000, guid: f0232d6682a260c418006a60d21990b0, type: 3}
+  cursor: {fileID: 2800000, guid: 07ad74260b10a9d4fb40c70ff598e211, type: 3}
   textMeshProUGUI: {fileID: 0}
   cam: {fileID: 6145665227129946586}
   minCameraAngle: -90
@@ -465,7 +466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e907ee50a1485b142b2900c71581fccf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.612
+      value: 0.598
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e907ee50a1485b142b2900c71581fccf, type: 3}
       propertyPath: m_LocalRotation.w

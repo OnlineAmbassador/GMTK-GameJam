@@ -19,9 +19,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform playerCamera;
     [SerializeField] CharacterController controller;
     [Space]
-    [SerializeField] float speed;
+    float speed;
+    [SerializeField] float sprintSpeed;
+    [SerializeField] float walkSpeed;
     [SerializeField] float jumpForce;
     [SerializeField] float gravity = -9.86f;
+    public float crouchHeight;
+    public float standHeight;
+    private bool isCroutching;
+
 
     public Texture2D cursor;
     public TextMeshProUGUI textMeshProUGUI;
@@ -38,6 +44,8 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         Cursor.SetCursor(cursor, Vector3.zero, CursorMode.ForceSoftware);
+        speed = walkSpeed;
+        isCroutching = !isCroutching;
     }
 
     void Update()
@@ -47,6 +55,30 @@ public class PlayerMovement : MonoBehaviour
         if (isBigMode)
         {
             MovePlayer();
+            if (Input.GetKeyDown(KeyCode.LeftShift))
+            {
+                speed = sprintSpeed;
+            }
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                speed = walkSpeed;
+            }
+
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                isCroutching = true;
+                controller.height = crouchHeight;
+                    
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftControl))
+            {
+                isCroutching = false;
+                controller.height = standHeight;
+
+            }
+
+
             playerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
             playerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
             MoveCamera();
