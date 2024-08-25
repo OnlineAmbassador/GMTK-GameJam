@@ -179,6 +179,7 @@ public class PlayerMovement : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
             GameObject.Find("FrontCart").GetComponentInChildren<AudioSource>().Pause();
             GameObject.Find("BigGuyCamera").GetComponentInChildren<AudioSource>().Play();
+            GameObject.Find("buttonthing").GetComponentInChildren<MeshRenderer>().enabled = true;
         }
         else
         {
@@ -186,6 +187,7 @@ public class PlayerMovement : MonoBehaviour
             Debug.Log("SWITCHING FROM BIG to SMALL");
             GameObject.Find("FrontCart").GetComponentInChildren<AudioSource>().Play();
             GameObject.Find("BigGuyCamera").GetComponentInChildren<AudioSource>().Pause();
+            GameObject.Find("buttonthing").GetComponentInChildren<MeshRenderer>().enabled = false;
         }
         GameObject.Find("BigGuyCamera").GetComponentInChildren<Camera>().enabled = isBigMode;
     }
