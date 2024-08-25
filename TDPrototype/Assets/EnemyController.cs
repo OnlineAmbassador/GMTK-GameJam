@@ -89,7 +89,7 @@ public class EnemyController : MonoBehaviour
             other.GetComponent<BulletScript>().damage *= .5f;
             Destroy(other.gameObject);
 
-           
+
         }
     }
 
