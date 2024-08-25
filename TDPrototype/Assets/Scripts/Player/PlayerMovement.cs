@@ -174,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
         GameObject.Find("FrontCart").GetComponentInChildren<Camera>().enabled = !isBigMode;
         if (isBigMode)
         {
+            Cursor.visible = true;
             Debug.Log("SWITCHING FROM SMALL to BIG");
             Cursor.lockState = CursorLockMode.Locked;
             GameObject.Find("FrontCart").GetComponentInChildren<AudioSource>().Pause();
@@ -181,6 +182,7 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+            Cursor.visible = false;
             Debug.Log("SWITCHING FROM BIG to SMALL");
             GameObject.Find("FrontCart").GetComponentInChildren<AudioSource>().Play();
             GameObject.Find("BigGuyCamera").GetComponentInChildren<AudioSource>().Pause();
